@@ -1,0 +1,19 @@
+{
+  "name": "backend-project-lvl1",
+  "version": "1.0.0",
+  "description": "hexlet's project",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksdk/backend-project-lvl1.git"
+  },
+  "author": "maksdk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksdk/backend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/maksdk/backend-project-lvl1#readme"
+}
