@@ -4,7 +4,8 @@
   "description": "hexlet project",
   "main": "src/index.js",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-games.js"
   },
   "scripts": {
     "debug": "babel src --out-dir _debug-compiled --source-maps --watch"
