@@ -1,2 +1,5 @@
 #!/usr/bin/env node
-console.log("Welcome to the Brain Games!");
+//@ts-check
+import { askName, greet } from "../src";
+const name = askName();
+greet(name);
