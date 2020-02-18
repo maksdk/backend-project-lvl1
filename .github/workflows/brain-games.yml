@@ -10,6 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Run npm install
+      run: |
+        make install
     - name: Run linter
       run: |
         make lint
