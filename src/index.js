@@ -1,6 +1,7 @@
 // @ts-check
 /* eslint-disable */
 import readlineSync from 'readline-sync';
+import colors from "colors";
 
 const STATES = {
 	GREET: 'greet',
@@ -39,7 +40,7 @@ const game = () => {
 				break;
 
 			case STATES.TASK:
-				console.log('Answer %c"yes" %cif %cthe number is even, otherwise answer %c"no".', 'color: red', 'font: bold 1.05em/1 Arial; color: black', 'font: 1em', 'color:red');
+				console.log(`Answer ${colors.red('"yes"')} ${colors.bold("if")} the number is even, otherwise answer ${colors.red('"no"')}${colors.blue(".")}` )
 				state.currentState = STATES.ROUND;
 				gameLoop(state);
 				break;
@@ -74,9 +75,8 @@ const game = () => {
 			
 			case STATES.LOST:
 				const {answer: wrightAnswer} = rounds[currentRoundIndex];
-				console.log(`%c"${answer}" %cis wrong answer %c;(. %cCorrect answer was %c"${wrightAnswer}".`, 'color:red','font: 1em', 'font:bold 1.05em/1 Arial', 'font: 1em','color: red')
-				// console.log(`"${answer}" is wrong answer ;(. Correct answer was "${wrightAnswer}"`);
-				console.log(`Let%c's try again, ${name}!`, 'color:red');
+				console.log(`${colors.red(`"${answer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${wrightAnswer}"`)}.`)
+				console.log(`Let${colors.red(`'s try again, ${name}!`)}`);
 				break;
 
 			case STATES.WON:
