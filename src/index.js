@@ -12,21 +12,25 @@ const STATES = {
 	WON: 'won'
 };
 
-const game = () => {
+/**
+ * @param {Object} params 
+ * @param {string} params.task 
+ * @param {Object[]} params.rounds 
+ * @param {string} params.rounds.answer 
+ * @param {string} params.rounds.question 
+ */
+const game = (params) => {
+
 	const initialState = {
 		currentState: 'greet',
 		name: '',
 		answer: '',
 		currentRoundIndex: 0,
-		rounds: [
-			{ answer: 'no', number: 15 }, 
-			{ answer: 'yes', number: 6 }, 
-			{ answer: 'no', number: 7 }
-		]
+		...params
 	};
 
 	function gameLoop(state) {
-		const { currentState, name, currentRoundIndex, rounds, answer } = state;
+		const { currentState, name, currentRoundIndex, rounds, answer, task } = state;
 
 		switch(currentState) {
 
@@ -40,16 +44,16 @@ const game = () => {
 				break;
 
 			case STATES.TASK:
-				console.log(`Answer ${colors.red('"yes"')} ${colors.bold("if")} the number is even, otherwise answer ${colors.red('"no"')}${colors.blue(".")}` )
+				console.log(task);
 				state.currentState = STATES.ROUND;
 				gameLoop(state);
 				break;
 
 			case STATES.ROUND:
-				const { number, answer: roundAnswer } = rounds[currentRoundIndex];
+				const { question, answer: roundAnswer } = rounds[currentRoundIndex];
 
-				console.log(`Question: ${number}`);
-				const userAnswer = readlineSync.question('Your answer: ');
+				console.log(`Question: ${question}`);
+				const userAnswer = String(readlineSync.question('Your answer: '));
 				
 				if (userAnswer === roundAnswer) {
 					state.currentState = STATES.WRIGHT;
