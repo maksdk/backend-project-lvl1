@@ -39,7 +39,7 @@ const game = () => {
 				break;
 
 			case STATES.TASK:
-				console.log('Answer "yes" if the number is even, otherwise answer "no".');
+				console.log('Answer %c"yes" %cif %cthe number is even, otherwise answer %c"no".', 'color: red', 'font: bold 1.05em/1 Arial; color: black', 'font: 1em', 'color:red');
 				state.currentState = STATES.ROUND;
 				gameLoop(state);
 				break;
@@ -74,8 +74,9 @@ const game = () => {
 			
 			case STATES.LOST:
 				const {answer: wrightAnswer} = rounds[currentRoundIndex];
-				console.log(`"${answer}" is wrong answer ;(. Correct answer was "${wrightAnswer}"`);
-				console.log(`Let's try again, ${name}!`);
+				console.log(`%c"${answer}" %cis wrong answer %c;(. %cCorrect answer was %c"${wrightAnswer}".`, 'color:red','font: 1em', 'font:bold 1.05em/1 Arial', 'font: 1em','color: red')
+				// console.log(`"${answer}" is wrong answer ;(. Correct answer was "${wrightAnswer}"`);
+				console.log(`Let%c's try again, ${name}!`, 'color:red');
 				break;
 
 			case STATES.WON:
