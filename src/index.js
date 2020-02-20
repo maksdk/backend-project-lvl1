@@ -8,7 +8,7 @@ const STATES = {
 	TASK: 'task',
 	ROUND: 'round',
 	WRIGHT: 'wright',
-	LOST: 'lost',
+	FAILED: 'failed',
 	WON: 'won'
 };
 
@@ -59,7 +59,7 @@ const game = (params) => {
 					state.currentState = STATES.WRIGHT;
 				}
 				else {
-					state.currentState = STATES.LOST;
+					state.currentState = STATES.FAILED;
 					state.answer = userAnswer;
 				}
 				gameLoop(state);
@@ -77,7 +77,7 @@ const game = (params) => {
 				gameLoop(state);
 				break;
 			
-			case STATES.LOST:
+			case STATES.FAILED:
 				const {answer: wrightAnswer} = rounds[currentRoundIndex];
 				console.log(`${colors.red(`"${answer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${wrightAnswer}"`)}.`)
 				console.log(`Let${colors.red(`'s try again, ${name}!`)}`);

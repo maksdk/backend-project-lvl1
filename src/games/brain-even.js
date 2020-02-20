@@ -11,4 +11,4 @@ const rounds = [
     { question: '7', answer: 'no' }
 ];
 
-game({ rounds, task });
+export default () => game({ rounds, task });

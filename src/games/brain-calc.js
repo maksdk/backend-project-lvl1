@@ -24,8 +24,8 @@ const buildRounds = () => {
     const rounds = [];
     
     for(let i = 0; i < 3; i++) {
-        const num1 = randomNumber(0, 99);
-        const num2 = randomNumber(0, 99);
+        const num1 = randomNumber(0, 10);
+        const num2 = randomNumber(0, 10);
         const operationName = operationsNames[randomNumber(0, operationsNames.length - 1)];
         const operation = operations[operationName];
 
@@ -41,4 +41,4 @@ const buildRounds = () => {
 const rounds = buildRounds();
 const task = `What is the result of the expression?`;
 
-game({ rounds, task });
+export default () => game({ rounds, task });
