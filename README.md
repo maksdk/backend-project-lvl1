@@ -12,4 +12,7 @@
 
 
 ### Watch how to launch The Brain-Calc Game: 
-[![asciicast](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES.svg)](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES)
+[![asciicast](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES.svg)](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES)  
+
+### Watch how to launch The Brain-Gcd Game:  
+[![asciicast](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4.svg)](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4)
