@@ -2,6 +2,10 @@
 
 import game from '../index.js';
 
+const MIN_NUMBER = 0;
+const MAX_NUMBER = 10;
+const ROUNDS_COUNT = 3;
+
 const operations = {
 	'*': (num1, num2) => num1 * num2,
 	'+': (num1, num2) => num1 + num2,
@@ -14,9 +18,10 @@ const buildRounds = () => {
 	const operationsNames = Object.keys(operations);
 	const rounds = [];
 
-	for (let i = 0; i < 3; i += 1) {
-		const num1 = randomNumber(0, 10);
-		const num2 = randomNumber(0, 10);
+	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
+		const num1 = randomNumber(MIN_NUMBER, MAX_NUMBER);
+		const num2 = randomNumber(MIN_NUMBER, MAX_NUMBER);
+
 		const operationName = operationsNames[randomNumber(0, operationsNames.length - 1)];
 		const operation = operations[operationName];
 

@@ -3,6 +3,15 @@
 import colors from 'colors';
 import game from '../index.js';
 
+const MIN_START_NUMBER = -50;
+const MAX_START_NUMBER = 50;
+
+const MIN_PROGRESS_RANGE_NUMBER = -5;
+const MAX_PROGRESS_RANGE_NUMBER = 5;
+
+const ROUNDS_COUNT = 3;
+const RANGE_LENGTH = 10;
+
 const operations = {
 	'+': (num1, num2) => num1 + num2,
 	'-': (num1, num2) => num1 - num2
@@ -13,7 +22,7 @@ const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min +
 const calcRange = (startNum, progressRange, operation) => {
 	const ranges = [];
 	let temp = startNum;
-	for (let i = 0; i < 10; i += 1) {
+	for (let i = 0; i < RANGE_LENGTH; i += 1) {
 		ranges.push(temp);
 		temp = operation(temp, progressRange);
 	}
@@ -25,11 +34,11 @@ const buildRounds = () => {
 	const operationsNames = Object.keys(operations);
 	const rounds = [];
 
-	for (let i = 0; i < 3; i += 1) {
-		const startNumber = randomNumber(-50, 50);
+	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
+		const startNumber = randomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
 
-		let progressRange = randomNumber(-5, 5);
-		progressRange = progressRange === 0 ? progressRange + 3 : progressRange;
+		let progressRange = randomNumber(MIN_PROGRESS_RANGE_NUMBER, MAX_PROGRESS_RANGE_NUMBER);
+		progressRange = progressRange === 0 ? progressRange + MAX_PROGRESS_RANGE_NUMBER : progressRange;
 
 		const operationName = operationsNames[randomNumber(0, operationsNames.length - 1)];
 		const operation = operations[operationName];

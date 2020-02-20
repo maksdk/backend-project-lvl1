@@ -2,6 +2,10 @@
 
 import game from '../index.js';
 
+const MIN_NUMBER = 1;
+const MAX_NUMBER = 20;
+const ROUNDS_COUNT = 3;
+
 const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
 
 const isPrime = (num) => {
@@ -32,11 +36,11 @@ const getGreatestCommonDivisor = (num1, num2) => {
 const buildRounds = () => {
 	const rounds = [];
 
-	for (let i = 0; i < 3; i += 1) {
-		let number1 = randomNumber(1, 20);
+	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
+		let number1 = randomNumber(MIN_NUMBER, MAX_NUMBER);
 		number1 = isPrime(number1) ? number1 + 1 : number1;
 		
-		let number2 = randomNumber(1, 20);
+		let number2 = randomNumber(MIN_NUMBER, MAX_NUMBER);
 		number2 = isPrime(number2) ? number2 + 1 : number2;
 
 		const question = `${number1} ${number2}`;
