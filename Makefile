@@ -10,6 +10,9 @@ run-even:
 run-gcd:
 	npx babel-node src/bin/brain-gcd.js
 
+run-progression:
+	npx babel-node src/bin/brain-progression.js
+
 publish:
 	npm run build
 	npm publish
