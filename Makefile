@@ -13,6 +13,9 @@ run-gcd:
 run-progression:
 	npx babel-node src/bin/brain-progression.js
 
+run-prime:
+	npx babel-node src/bin/brain-prime.js
+
 publish:
 	npm run build
 	npm publish
