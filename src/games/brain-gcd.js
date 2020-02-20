@@ -7,6 +7,18 @@ const randomNumber = (min, max) => {
 	return Math.floor(min + Math.random() * (max - min + 1));
 };
 
+const isPrime = (num) =>  {
+	if (num === 1) return false;
+	if (num === 2) return true;
+
+	for (let x = 2; x < num; x += 1) {
+      if (num % x === 0) return false;
+	}
+	
+    return true; 
+};
+
+
 const getGreatestCommonDivisor = (num1, num2) => {
 	num1 = Math.abs(num1);
 	num2 = Math.abs(num2);
@@ -23,8 +35,13 @@ const getGreatestCommonDivisor = (num1, num2) => {
 const buildRounds = () => {
 	const rounds = [];
 	for (let i = 0; i < 3; i++) {
-		const number1 = randomNumber(1, 20);
-		const number2 = randomNumber(1, 20);
+
+		let number1 = randomNumber(1, 20);
+		number1 = isPrime(number1) ? number1 + 1 : number1;
+		
+		let number2 = randomNumber(1, 20);
+		number2 = isPrime(number2) ? number2 + 1 : number2;
+
 		const question = `${number1} ${number2}`;
 		const answer = String(getGreatestCommonDivisor(number1, number2));
 		
