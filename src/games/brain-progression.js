@@ -1,26 +1,19 @@
 // @ts-check
-/* eslint-disable */
 
-import game from "../index.js";
-import colors from "colors";
+import colors from 'colors';
+import game from '../index.js';
 
 const operations = {
-    "+": (num1, num2) => {
-        return num1 + num2;
-    },
-    "-": (num1, num2) => {
-        return num1 - num2;
-    }
+	'+': (num1, num2) => num1 + num2,
+	'-': (num1, num2) => num1 - num2
 };
 
-const randomNumber = (min, max) => {
-	return Math.floor(min + Math.random() * (max - min + 1));
-};
+const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
 
 const calcRange = (startNum, progressRange, operation) => {
 	const ranges = [];
 	let temp = startNum;
-	for(let i = 0; i < 10; i++) {
+	for (let i = 0; i < 10; i += 1) {
 		ranges.push(temp);
 		temp = operation(temp, progressRange);
 	}
@@ -32,7 +25,7 @@ const buildRounds = () => {
 	const operationsNames = Object.keys(operations);
 	const rounds = [];
 
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 3; i += 1) {
 		const startNumber = randomNumber(-50, 50);
 
 		let progressRange = randomNumber(-5, 5);
@@ -46,8 +39,8 @@ const buildRounds = () => {
 
 		const answer = String(range[randomIndex]);
 
-		range[randomIndex] = "..";
-		const question = range.join(" ");
+		range[randomIndex] = '..';
+		const question = range.join(' ');
 		
 		rounds.push({ question, answer });
 	}
@@ -55,6 +48,6 @@ const buildRounds = () => {
 };
 
 const task = `What number is missing ${colors.bold('in')} the progression?`;
-const rounds = buildRounds(); 
-
+const rounds = buildRounds();
+ 
 export default () => game({ rounds, task });

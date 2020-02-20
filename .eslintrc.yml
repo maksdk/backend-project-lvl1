@@ -23,3 +23,4 @@ rules:
   indent: [1, "tab"]
   no-tabs: 0
   comma-dangle: ["error", "never"] 
+  no-trailing-spaces: ["error", { "skipBlankLines": true }]

@@ -1,7 +1,6 @@
 // @ts-check
-/* eslint-disable */
 import readlineSync from 'readline-sync';
-import colors from "colors";
+import colors from 'colors';
 
 const STATES = {
 	GREET: 'greet',
@@ -13,14 +12,13 @@ const STATES = {
 };
 
 /**
- * @param {Object} params 
- * @param {string} params.task 
- * @param {Object[]} params.rounds 
- * @param {string} params.rounds.answer 
- * @param {string} params.rounds.question 
+ * @param {Object} params
+ * @param {string} params.task
+ * @param {Object[]} params.rounds
+ * @param {string} params.rounds.answer
+ * @param {string} params.rounds.question
  */
 const game = (params) => {
-
 	const initialState = {
 		currentState: 'greet',
 		name: '',
@@ -30,65 +28,68 @@ const game = (params) => {
 	};
 
 	function gameLoop(state) {
-		const { currentState, name, currentRoundIndex, rounds, answer, task } = state;
+		const {
+			currentState,
+			name,
+			rounds,
+			answer,
+			task
+		} = state;
 
-		switch(currentState) {
+		let { currentRoundIndex } = state;
 
-			case STATES.GREET:
-				console.log('Welcome to the Brain Games!') ;
-				const userName = readlineSync.question('May I have your name? ');
-				console.log(`Hello, ${userName}!`);
-				state.name = userName;
-				state.currentState = STATES.TASK;
-				gameLoop(state);
-				break;
+		let userName;
+		let userAnswer;
 
-			case STATES.TASK:
-				console.log(task);
-				state.currentState = STATES.ROUND;
-				gameLoop(state);
-				break;
+		switch (currentState) {
+		case STATES.GREET:
+			console.log('Welcome to the Brain Games!');
+			userName = readlineSync.question('May I have your name? ');
+			console.log(`Hello, ${userName}!`);
 
-			case STATES.ROUND:
-				const { question, answer: roundAnswer } = rounds[currentRoundIndex];
+			gameLoop({ ...state, name: userName, currentState: STATES.TASK });
+			break;
 
-				console.log(`Question: ${question}`);
-				const userAnswer = String(readlineSync.question('Your answer: '));
-				
-				if (userAnswer === roundAnswer) {
-					state.currentState = STATES.WRIGHT;
-				}
-				else {
-					state.currentState = STATES.FAILED;
-					state.answer = userAnswer;
-				}
-				gameLoop(state);
-				break;
-				
-			case STATES.WRIGHT:
-				console.log(`Correct!`);
-				state.currentRoundIndex += 1;
-				if (state.currentRoundIndex >= rounds.length) {
-					state.currentState = STATES.WON;
-				}
-				else {
-					state.currentState = STATES.ROUND;
-				}
-				gameLoop(state);
-				break;
+		case STATES.TASK:
+			console.log(task);
+
+			gameLoop({ ...state, currentState: STATES.ROUND });
+			break;
+
+		case STATES.ROUND:
+			console.log(`Question: ${rounds[currentRoundIndex].question}`);
+			userAnswer = String(readlineSync.question('Your answer: '));
 			
-			case STATES.FAILED:
-				const {answer: wrightAnswer} = rounds[currentRoundIndex];
-				console.log(`${colors.red(`"${answer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${wrightAnswer}"`)}.`)
-				console.log(`Let${colors.red(`'s try again, ${name}!`)}`);
-				break;
+			if (userAnswer === rounds[currentRoundIndex].answer) {
+				gameLoop({ ...state, currentState: STATES.WRIGHT });
+			} else {
+				gameLoop({ ...state, currentState: STATES.FAILED, answer: userAnswer });
+			}
+			break;
+			
+		case STATES.WRIGHT:
+			console.log('Correct!');
 
-			case STATES.WON:
-				console.log(`Congratulations, ${name}!`);
-				break;
+			currentRoundIndex += 1;
 
-			default: 
-				throw `Such state: ${currentState} is not found`;
+			if (currentRoundIndex >= rounds.length) {
+				gameLoop({ ...state, currentRoundIndex, currentState: STATES.WON });
+			} else {
+				gameLoop({ ...state, currentRoundIndex, currentState: STATES.ROUND });
+			}
+			break;
+		
+		case STATES.FAILED:
+			console.log(`${colors.red(`"${answer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${rounds[currentRoundIndex].answer}"`)}.`);
+			console.log(`Let${colors.red(`'s try again, ${name}!`)}`);
+			break;
+
+		case STATES.WON:
+			console.log(`Congratulations, ${name}!`);
+			break;
+
+		default:
+			throw new Error(`Such state: ${currentState} is not found`);
 		}
 	}
 
