@@ -25,7 +25,7 @@ const buildRounds = () => {
 
 		const number = randomNumber(1, 50);
 		const question = String(number);
-		const answer = isPrime(number) === true ? "yse" : "no";
+		const answer = isPrime(number) === true ? "yes" : "no";
 		
 		rounds.push({ question, answer });
 	}

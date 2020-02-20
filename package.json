@@ -1,13 +1,14 @@
 {
 	"name": "backend-project-lvl1-maksdk",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "hexlet project",
 	"main": "src/index.js",
 	"bin": {
 		"brain-even": "dist/bin/brain-even.js",
 		"brain-calc": "dist/bin/brain-calc.js",
 		"brain-gcd": "dist/bin/brain-gcd.js",
-		"brain-progression": "dist/bin/brain-progression.js"
+		"brain-progression": "dist/bin/brain-progression.js",
+		"brain-prime": "dist/bin/brain-prime.js"
 	},
 	"scripts": {
 		"debug": "babel src --out-dir .debug-compiled --source-maps --watch",
