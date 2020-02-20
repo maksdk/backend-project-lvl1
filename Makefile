@@ -8,7 +8,7 @@ run-even:
 	npx babel-node src/bin/brain-even.js
 
 publish:
-	npm publish --dry-run
+	npm publish
 
 lint:
 	npx eslint .
