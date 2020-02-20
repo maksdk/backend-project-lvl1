@@ -18,4 +18,7 @@
 [![asciicast](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4.svg)](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4)  
 
 ### Watch how to launch The Brain-Progression Game:  
-[![asciicast](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2.svg)](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2)
+[![asciicast](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2.svg)](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2)  
+
+### Wacth how to launch The Brain-Prime game:  
+[![asciicast](https://asciinema.org/a/3XxEQcN7Iqz0bdP0AkUnHJoh4.svg)](https://asciinema.org/a/3XxEQcN7Iqz0bdP0AkUnHJoh4)
