@@ -7,48 +7,37 @@ import Utils from '../utils/index.js';
 const MIN_START_NUMBER = -50;
 const MAX_START_NUMBER = 50;
 
-const MIN_PROGRESS_RANGE_NUMBER = -5;
-const MAX_PROGRESS_RANGE_NUMBER = 5;
+const MIN_PROGRESS_STEP_NUMBER = -5;
+const MAX_PROGRESS_STEP_NUMBER = 5;
 
 const ROUNDS_COUNT = 3;
 const RANGE_LENGTH = 10;
 
-const operations = {
-	'+': (num1, num2) => num1 + num2,
-	'-': (num1, num2) => num1 - num2
-};
-
-const calcRange = (startNum, progressRange, operation) => {
+const calcProgressRange = (startNum, step) => {
 	const ranges = [];
-	let temp = startNum;
 	for (let i = 0; i < RANGE_LENGTH; i += 1) {
-		ranges.push(temp);
-		temp = operation(temp, progressRange);
+		const randgeValue = startNum + step * i;
+		ranges.push(randgeValue);
 	}
 	return ranges;
 };
 
-
 const buildRounds = () => {
-	const operationsNames = Object.keys(operations);
 	const rounds = [];
 
 	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
 		const startNumber = Utils.randomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
 
-		let progressRange = Utils.randomNumber(MIN_PROGRESS_RANGE_NUMBER, MAX_PROGRESS_RANGE_NUMBER);
-		progressRange = progressRange === 0 ? progressRange + MAX_PROGRESS_RANGE_NUMBER : progressRange;
+		let progressStep = Utils.randomNumber(MIN_PROGRESS_STEP_NUMBER, MAX_PROGRESS_STEP_NUMBER);
+		progressStep = progressStep === 0 ? progressStep + MAX_PROGRESS_STEP_NUMBER : progressStep;
 
-		const operationName = operationsNames[Utils.randomNumber(0, operationsNames.length - 1)];
-		const operation = operations[operationName];
+		const progressRange = calcProgressRange(startNumber, progressStep);
+		const randomIndex = Utils.randomNumber(0, progressRange.length - 1);
 
-		const range = calcRange(startNumber, progressRange, operation);
-		const randomIndex = Utils.randomNumber(0, range.length - 1);
+		const answer = String(progressRange[randomIndex]);
 
-		const answer = String(range[randomIndex]);
-
-		range[randomIndex] = '..';
-		const question = range.join(' ');
+		progressRange[randomIndex] = '..';
+		const question = progressRange.join(' ');
 		
 		rounds.push({ question, answer });
 	}
