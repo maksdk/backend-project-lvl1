@@ -36,4 +36,6 @@ const buildRounds = () => {
 const rounds = buildRounds();
 const task = 'What is the result of the expression?';
 
-export default () => game({ rounds, task });
+export default {
+	run: () => game(rounds, task)
+};

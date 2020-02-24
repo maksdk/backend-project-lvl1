@@ -47,4 +47,6 @@ const buildRounds = () => {
 const task = `What number is missing ${colors.bold('in')} the progression?`;
 const rounds = buildRounds();
  
-export default () => game({ rounds, task });
+export default {
+	run: () => game(rounds, task)
+};

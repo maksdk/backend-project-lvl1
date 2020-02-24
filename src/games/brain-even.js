@@ -29,4 +29,6 @@ const buildRounds = () => {
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} the number is even, otherwise answer ${colors.red('"no"')}.`;
 const rounds = buildRounds();
 
-export default () => game({ rounds, task });
+export default {
+	run: () => game(rounds, task)
+};

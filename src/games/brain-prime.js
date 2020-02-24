@@ -40,4 +40,6 @@ const buildRounds = () => {
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} given number is prime. Otherwise answer ${colors.red('"no"')}.`;
 const rounds = buildRounds();
 
-export default () => game({ rounds, task });
+export default {
+	run: () => game(rounds, task)
+};
