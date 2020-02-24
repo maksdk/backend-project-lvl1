@@ -2,99 +2,62 @@
 import readlineSync from 'readline-sync';
 import colors from 'colors';
 
-const STATES = {
-	GREET: 'greet',
-	TASK: 'task',
-	ROUND: 'round',
-	WRIGHT: 'wright',
-	FAILED: 'failed',
-	WON: 'won'
+const mapTexts = {
+	welcome: () => 'Welcome to the Brain Games!',
+	name: () => 'May I have your name? ',
+	greet: (name) => `Hello, ${name}!`,
+	question: (body) => `Question: ${body}`,
+	answer: () => 'Your answer: ',
+	correct: () => 'Correct!',
+	wrong: (wrongAnswer, correctAnswer) => `${colors.red(`"${wrongAnswer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${correctAnswer}"`)}.`,
+	tryAgain: (name) => `Let${colors.red(`'s try again, ${name}!`)}`,
+	win: (name) => `Congratulations, ${name}!`
 };
 
-/**
- * @param {Object} params
- * @param {string} params.task
- * @param {Object[]} params.rounds
- * @param {string} params.rounds.answer
- * @param {string} params.rounds.question
- */
-const game = (params) => {
-	const initialState = {
-		currentState: 'greet',
-		name: '',
-		answer: '',
-		currentRoundIndex: 0,
-		...params
-	};
+const print = (message) => {
+	console.log(message);
+};
 
-	function gameLoop(state) {
-		const {
-			currentState,
-			name,
-			rounds,
-			answer,
-			task
-		} = state;
+const ask = (question) => String(readlineSync.question(question));
 
-		let { currentRoundIndex } = state;
+const gameLoop = (rounds, userName, currentRoundIndex) => {
+	const round = rounds[currentRoundIndex];
 
-		let userName;
-		let userAnswer;
+	const {
+		answer: roundAnswer,
+		question: roundQuestion
+	} = round;
 
-		switch (currentState) {
-		case STATES.GREET:
-			console.log('Welcome to the Brain Games!');
-			userName = readlineSync.question('May I have your name? ');
-			console.log(`Hello, ${userName}!`);
+	print(mapTexts.question(roundQuestion));
 
-			gameLoop({ ...state, name: userName, currentState: STATES.TASK });
-			break;
-
-		case STATES.TASK:
-			console.log(task);
-
-			gameLoop({ ...state, currentState: STATES.ROUND });
-			break;
-
-		case STATES.ROUND:
-			console.log(`Question: ${rounds[currentRoundIndex].question}`);
-			userAnswer = String(readlineSync.question('Your answer: '));
-			
-			if (userAnswer === rounds[currentRoundIndex].answer) {
-				gameLoop({ ...state, currentState: STATES.WRIGHT });
-			} else {
-				gameLoop({ ...state, currentState: STATES.FAILED, answer: userAnswer });
-			}
-			break;
-			
-		case STATES.WRIGHT:
-			console.log('Correct!');
-
-			currentRoundIndex += 1;
-
-			if (currentRoundIndex >= rounds.length) {
-				gameLoop({ ...state, currentRoundIndex, currentState: STATES.WON });
-			} else {
-				gameLoop({ ...state, currentRoundIndex, currentState: STATES.ROUND });
-			}
-			break;
+	const userAnswer = ask(mapTexts.answer());
+	
+	if (userAnswer === roundAnswer) {
+		const nextRoundIndex = currentRoundIndex + 1;
 		
-		case STATES.FAILED:
-			console.log(`${colors.red(`"${answer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${rounds[currentRoundIndex].answer}"`)}.`);
-			console.log(`Let${colors.red(`'s try again, ${name}!`)}`);
-			break;
-
-		case STATES.WON:
-			console.log(`Congratulations, ${name}!`);
-			break;
-
-		default:
-			throw new Error(`Such state: ${currentState} is not found`);
+		if (nextRoundIndex >= rounds.length) {
+			print(mapTexts.win(userName));
+		} else {
+			gameLoop(rounds, userName, nextRoundIndex);
 		}
+	} else {
+		print(mapTexts.wrong(userAnswer, roundAnswer));
+		print(mapTexts.tryAgain(userName));
 	}
-
-	gameLoop(initialState);
 };
 
+const game = (rounds, task) => {
+	const initRoundIndex = 0;
+
+	print(mapTexts.welcome());
+
+	const userName = ask(mapTexts.name());
+
+	print(mapTexts.greet(userName));
+
+	print(task);
+
+	gameLoop(rounds, userName, initRoundIndex);
+};
 
 export default game;
