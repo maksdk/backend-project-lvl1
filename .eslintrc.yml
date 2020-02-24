@@ -19,8 +19,3 @@ extends:
 rules:
   no-console: 0
   import/extensions: 0
-  linebreak-style: 0
-  indent: [1, "tab"]
-  no-tabs: 0
-  comma-dangle: ["error", "never"] 
-  no-trailing-spaces: ["error", { "skipBlankLines": true }]

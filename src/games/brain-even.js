@@ -14,21 +14,22 @@ const NO_ANSWER = 'no';
 const isEven = (num) => num % 2 === 0;
 
 const buildRounds = () => {
-	const rounds = [];
+  const rounds = [];
 
-	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-		const number = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
-		const question = String(number);
-		const answer = isEven(number) ? YES_ANSWER : NO_ANSWER;
-		rounds.push({ question, answer });
-	}
+  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
+    const number = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+    const question = String(number);
+    const answer = isEven(number) ? YES_ANSWER : NO_ANSWER;
 
-	return rounds;
+    rounds.push({ question, answer });
+  }
+
+  return rounds;
 };
 
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} the number is even, otherwise answer ${colors.red('"no"')}.`;
 const rounds = buildRounds();
 
 export default {
-	run: () => game(rounds, task)
+  run: () => game(rounds, task),
 };
