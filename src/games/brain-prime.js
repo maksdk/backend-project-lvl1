@@ -11,8 +11,6 @@ const ROUNDS_COUNT = 3;
 const YES_ANSWER = 'yes';
 const NO_ANSWER = 'no';
 
-// const Utils.randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-
 const isPrime = (num) => {
 	if (num === 1) return false;
 	if (num === 2) return true;

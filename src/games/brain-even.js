@@ -11,8 +11,6 @@ const ROUNDS_COUNT = 3;
 const YES_ANSWER = 'yes';
 const NO_ANSWER = 'no';
 
-// const Utils.randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-
 const isEven = (num) => num % 2 === 0;
 
 const buildRounds = () => {

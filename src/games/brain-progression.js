@@ -18,8 +18,6 @@ const operations = {
 	'-': (num1, num2) => num1 - num2
 };
 
-// const Utils.randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-
 const calcRange = (startNum, progressRange, operation) => {
 	const ranges = [];
 	let temp = startNum;

@@ -13,8 +13,6 @@ const operations = {
 	'-': (num1, num2) => num1 - num2
 };
 
-// const Utils.randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-
 const buildRounds = () => {
 	const operationsNames = Object.keys(operations);
 	const rounds = [];
