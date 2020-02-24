@@ -12,14 +12,12 @@ const YES_ANSWER = 'yes';
 const NO_ANSWER = 'no';
 
 const isPrime = (num) => {
-	if (num === 1) return false;
-	if (num === 2) return true;
-
-	for (let x = 2; x < num; x += 1) {
-		if (num % x === 0) return false;
+	for (let i = 2; i < num; i += 1) {
+		if (num % i === 0) {
+			return false;
+		}
 	}
-
-	return true;
+	return num > 1;
 };
 
 const buildRounds = () => {
@@ -29,8 +27,11 @@ const buildRounds = () => {
 		const number = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
 		const question = String(number);
 		const answer = isPrime(number) === true ? YES_ANSWER : NO_ANSWER;
-		
-		rounds.push({ question, answer });
+
+		rounds.push({
+			question,
+			answer
+		});
 	}
 
 	return rounds;
