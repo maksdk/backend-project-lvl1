@@ -1,6 +1,7 @@
 // @ts-check
 
 import game from '../index.js';
+import Utils from '../utils/index.js';
 
 const MIN_NUMBER = 0;
 const MAX_NUMBER = 10;
@@ -12,17 +13,17 @@ const operations = {
 	'-': (num1, num2) => num1 - num2
 };
 
-const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
+// const Utils.randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
 
 const buildRounds = () => {
 	const operationsNames = Object.keys(operations);
 	const rounds = [];
 
 	for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-		const num1 = randomNumber(MIN_NUMBER, MAX_NUMBER);
-		const num2 = randomNumber(MIN_NUMBER, MAX_NUMBER);
+		const num1 = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+		const num2 = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
 
-		const operationName = operationsNames[randomNumber(0, operationsNames.length - 1)];
+		const operationName = operationsNames[Utils.randomNumber(0, operationsNames.length - 1)];
 		const operation = operations[operationName];
 
 		const question = `${num1} ${operationName} ${num2}`;
