@@ -13,7 +13,7 @@ const MAX_PROGRESS_STEP_NUMBER = 5;
 const ROUNDS_COUNT = 3;
 const RANGE_LENGTH = 10;
 
-const calcProgressRange = (startNum, step) => {
+const generateProgression = (startNum, step) => {
   const ranges = [];
 
   for (let i = 0; i < RANGE_LENGTH; i += 1) {
@@ -33,13 +33,13 @@ const buildRounds = () => {
     let progressStep = Utils.randomNumber(MIN_PROGRESS_STEP_NUMBER, MAX_PROGRESS_STEP_NUMBER);
     progressStep = progressStep === 0 ? progressStep + MAX_PROGRESS_STEP_NUMBER : progressStep;
 
-    const progressRange = calcProgressRange(startNumber, progressStep);
-    const randomIndex = Utils.randomNumber(0, progressRange.length - 1);
+    const progression = generateProgression(startNumber, progressStep);
+    const randomIndex = Utils.randomNumber(0, progression.length - 1);
 
-    const answer = String(progressRange[randomIndex]);
+    const answer = String(progression[randomIndex]);
 
-    progressRange[randomIndex] = '..';
-    const question = progressRange.join(' ');
+    progression[randomIndex] = '..';
+    const question = progression.join(' ');
 
     rounds.push({ question, answer });
   }
