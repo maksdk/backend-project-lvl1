@@ -2,13 +2,4 @@
 
 const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
 
-const isPrime = (num) => {
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) {
-      return false;
-    }
-  }
-  return num > 1;
-};
-
-export default { randomNumber, isPrime };
+export default { randomNumber };
