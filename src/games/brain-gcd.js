@@ -30,7 +30,7 @@ const getGreatestCommonDivisor = (num1, num2) => {
   return n1;
 };
 
-const buildRounds = () => {
+const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < ROUNDS_COUNT; i += 1) {
@@ -50,8 +50,7 @@ const buildRounds = () => {
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
-const rounds = buildRounds();
 
 export default {
-  run: () => game(rounds, task),
+  run: () => game(task, createRounds),
 };

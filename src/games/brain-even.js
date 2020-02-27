@@ -13,7 +13,7 @@ const WRONG_ANSWER = 'no';
 
 const isEven = (num) => num % 2 === 0;
 
-const buildRounds = () => {
+const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < ROUNDS_COUNT; i += 1) {
@@ -28,8 +28,7 @@ const buildRounds = () => {
 };
 
 const task = `Answer ${colors.red(`"${CORRECT_ANSWER}"`)} ${colors.bold('if')} the number is even, otherwise answer ${colors.red(`"${WRONG_ANSWER}"`)}.`;
-const rounds = buildRounds();
 
 export default {
-  run: () => game(rounds, task),
+  run: () => game(task, createRounds),
 };

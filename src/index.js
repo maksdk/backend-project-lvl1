@@ -46,8 +46,9 @@ const gameLoop = (rounds, userName, currentRoundIndex) => {
   }
 };
 
-const game = (rounds, task) => {
+const game = (task, createRoundsCb) => {
   const initRoundIndex = 0;
+  const rounds = createRoundsCb();
 
   print(mapTexts.welcome());
 

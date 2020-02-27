@@ -13,7 +13,7 @@ const operations = {
   '-': (num1, num2) => num1 - num2,
 };
 
-const buildRounds = () => {
+const createRounds = () => {
   const operationsNames = Object.keys(operations);
   const rounds = [];
 
@@ -33,9 +33,8 @@ const buildRounds = () => {
   return rounds;
 };
 
-const rounds = buildRounds();
 const task = 'What is the result of the expression?';
 
 export default {
-  run: () => game(rounds, task),
+  run: () => game(task, createRounds),
 };

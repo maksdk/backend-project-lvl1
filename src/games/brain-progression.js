@@ -24,7 +24,7 @@ const generateProgression = (startNum, step) => {
   return ranges;
 };
 
-const buildRounds = () => {
+const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < ROUNDS_COUNT; i += 1) {
@@ -48,8 +48,7 @@ const buildRounds = () => {
 };
 
 const task = `What number is missing ${colors.bold('in')} the progression?`;
-const rounds = buildRounds();
 
 export default {
-  run: () => game(rounds, task),
+  run: () => game(task, createRounds),
 };
