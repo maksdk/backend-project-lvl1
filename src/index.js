@@ -21,6 +21,11 @@ const print = (message) => {
 const ask = (question) => String(readlineSync.question(question));
 
 const gameLoop = (rounds, userName, currentRoundIndex) => {
+  if (currentRoundIndex >= rounds.length) {
+    print(mapTexts.win(userName));
+    return;
+  }
+
   const round = rounds[currentRoundIndex];
 
   const {
@@ -33,13 +38,7 @@ const gameLoop = (rounds, userName, currentRoundIndex) => {
   const userAnswer = ask(mapTexts.answer());
 
   if (userAnswer === roundAnswer) {
-    const nextRoundIndex = currentRoundIndex + 1;
-
-    if (nextRoundIndex >= rounds.length) {
-      print(mapTexts.win(userName));
-    } else {
-      gameLoop(rounds, userName, nextRoundIndex);
-    }
+    gameLoop(rounds, userName, currentRoundIndex + 1);
   } else {
     print(mapTexts.wrong(userAnswer, roundAnswer));
     print(mapTexts.tryAgain(userName));
