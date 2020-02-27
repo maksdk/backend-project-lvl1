@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)  
+[![Maintainability](https://api.codeclimate.com/v1/badges/e70137d9be1cf99ef08a/maintainability)](https://codeclimate.com/github/maksdk/backend-project-lvl1/maintainability)
 
 ![](https://github.com/maksdk/backend-project-lvl1/workflows/brain-games/badge.svg)  
 
