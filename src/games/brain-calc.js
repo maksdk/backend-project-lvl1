@@ -35,6 +35,4 @@ const createRounds = () => {
 
 const task = 'What is the result of the expression?';
 
-export default {
-  run: () => play(task, createRounds),
-};
+export default () => play(task, createRounds);

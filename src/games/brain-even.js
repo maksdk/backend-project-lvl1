@@ -29,6 +29,4 @@ const createRounds = () => {
 
 const task = `Answer ${colors.red(`"${CORRECT_ANSWER}"`)} ${colors.bold('if')} the number is even, otherwise answer ${colors.red(`"${WRONG_ANSWER}"`)}.`;
 
-export default {
-  run: () => play(task, createRounds),
-};
+export default () => play(task, createRounds);

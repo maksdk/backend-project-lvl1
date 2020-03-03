@@ -38,6 +38,4 @@ const createRounds = () => {
 
 const task = 'Find the greatest common divisor of given numbers.';
 
-export default {
-  run: () => play(task, createRounds),
-};
+export default () => play(task, createRounds);

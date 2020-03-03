@@ -37,6 +37,4 @@ const createRounds = () => {
 
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} given number is prime. Otherwise answer ${colors.red('"no"')}.`;
 
-export default {
-  run: () => play(task, createRounds),
-};
+export default () => play(task, createRounds);

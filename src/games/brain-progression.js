@@ -49,6 +49,4 @@ const createRounds = () => {
 
 const task = `What number is missing ${colors.bold('in')} the progression?`;
 
-export default {
-  run: () => play(task, createRounds),
-};
+export default () => play(task, createRounds);
