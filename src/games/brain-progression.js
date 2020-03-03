@@ -2,7 +2,7 @@
 
 import colors from 'colors';
 import game from '../index.js';
-import Utils from '../utils/index.js';
+import utils from '../utils/index.js';
 
 const MIN_START_NUMBER = -50;
 const MAX_START_NUMBER = 50;
@@ -28,13 +28,13 @@ const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const startNumber = Utils.randomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
+    const startNumber = utils.randomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
 
-    let progressStep = Utils.randomNumber(MIN_PROGRESS_STEP_NUMBER, MAX_PROGRESS_STEP_NUMBER);
+    let progressStep = utils.randomNumber(MIN_PROGRESS_STEP_NUMBER, MAX_PROGRESS_STEP_NUMBER);
     progressStep = progressStep === 0 ? progressStep + MAX_PROGRESS_STEP_NUMBER : progressStep;
 
     const progression = generateProgression(startNumber, progressStep);
-    const randomIndex = Utils.randomNumber(0, progression.length - 1);
+    const randomIndex = utils.randomNumber(0, progression.length - 1);
 
     const answer = String(progression[randomIndex]);
 

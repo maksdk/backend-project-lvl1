@@ -1,7 +1,7 @@
 // @ts-check
 
 import game from '../index.js';
-import Utils from '../utils/index.js';
+import utils from '../utils/index.js';
 
 const MIN_NUMBER = 0;
 const MAX_NUMBER = 10;
@@ -18,10 +18,10 @@ const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const num1 = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
-    const num2 = Utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+    const num1 = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+    const num2 = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
 
-    const operationName = operationsNames[Utils.randomNumber(0, operationsNames.length - 1)];
+    const operationName = operationsNames[utils.randomNumber(0, operationsNames.length - 1)];
     const operation = operations[operationName];
 
     const question = `${num1} ${operationName} ${num2}`;
