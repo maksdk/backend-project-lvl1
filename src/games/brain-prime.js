@@ -1,7 +1,7 @@
 // @ts-check
 
 import colors from 'colors';
-import game from '../index.js';
+import play from '../index.js';
 import utils from '../utils/index.js';
 
 const MIN_NUMBER = 1;
@@ -38,5 +38,5 @@ const createRounds = () => {
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} given number is prime. Otherwise answer ${colors.red('"no"')}.`;
 
 export default {
-  run: () => game(task, createRounds),
+  run: () => play(task, createRounds),
 };

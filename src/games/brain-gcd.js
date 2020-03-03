@@ -1,6 +1,6 @@
 // @ts-check
 
-import game from '../index.js';
+import play from '../index.js';
 import utils from '../utils/index.js';
 
 const MIN_NUMBER = 1;
@@ -39,5 +39,5 @@ const createRounds = () => {
 const task = 'Find the greatest common divisor of given numbers.';
 
 export default {
-  run: () => game(task, createRounds),
+  run: () => play(task, createRounds),
 };

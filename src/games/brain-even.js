@@ -1,7 +1,7 @@
 // @ts-check
 
 import colors from 'colors';
-import game from '../index.js';
+import play from '../index.js';
 import utils from '../utils/index.js';
 
 const MIN_NUMBER = 0;
@@ -30,5 +30,5 @@ const createRounds = () => {
 const task = `Answer ${colors.red(`"${CORRECT_ANSWER}"`)} ${colors.bold('if')} the number is even, otherwise answer ${colors.red(`"${WRONG_ANSWER}"`)}.`;
 
 export default {
-  run: () => game(task, createRounds),
+  run: () => play(task, createRounds),
 };

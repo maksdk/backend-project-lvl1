@@ -1,6 +1,6 @@
 // @ts-check
 
-import game from '../index.js';
+import play from '../index.js';
 import utils from '../utils/index.js';
 
 const MIN_NUMBER = 0;
@@ -36,5 +36,5 @@ const createRounds = () => {
 const task = 'What is the result of the expression?';
 
 export default {
-  run: () => game(task, createRounds),
+  run: () => play(task, createRounds),
 };

@@ -1,7 +1,7 @@
 // @ts-check
 
 import colors from 'colors';
-import game from '../index.js';
+import play from '../index.js';
 import utils from '../utils/index.js';
 
 const MIN_START_NUMBER = -50;
@@ -50,5 +50,5 @@ const createRounds = () => {
 const task = `What number is missing ${colors.bold('in')} the progression?`;
 
 export default {
-  run: () => game(task, createRounds),
+  run: () => play(task, createRounds),
 };
