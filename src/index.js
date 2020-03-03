@@ -45,7 +45,7 @@ const gameLoop = (rounds, userName, currentRoundIndex) => {
   }
 };
 
-const game = (task, createRounds) => {
+const play = (task, createRounds) => {
   const initRoundIndex = 0;
   const rounds = createRounds();
 
@@ -60,4 +60,4 @@ const game = (task, createRounds) => {
   gameLoop(rounds, userName, initRoundIndex);
 };
 
-export default game;
+export default play;
