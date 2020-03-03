@@ -10,7 +10,7 @@ const mapTexts = {
   answer: () => 'Your answer: ',
   correct: () => 'Correct!',
   wrong: (wrongAnswer, correctAnswer) => `${colors.red(`"${wrongAnswer}"`)} is wrong answer ${colors.bold(';(')}. Correct answer was ${colors.red(`"${correctAnswer}"`)}.`,
-  tryAgain: (name) => `Let${colors.red(`'s try again, ${name}!`)}`,
+  replay: (name) => `Let${colors.red(`'s try again, ${name}!`)}`,
   win: (name) => `Congratulations, ${name}!`,
 };
 
@@ -41,7 +41,7 @@ const gameLoop = (rounds, userName, currentRoundIndex) => {
     gameLoop(rounds, userName, currentRoundIndex + 1);
   } else {
     print(mapTexts.wrong(userAnswer, roundAnswer));
-    print(mapTexts.tryAgain(userName));
+    print(mapTexts.replay(userName));
   }
 };
 
