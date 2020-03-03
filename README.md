@@ -34,7 +34,8 @@ To start play the game you need to do a couple of steps:
 <h4 align="center">The Brain-Even Game</h4>  
 
 **Task:** find all even numbers of the proposed variants.  
-Watch the example how to launch and play:  
+Command to launch: ```brain-even```  
+Watch the example how to launch and play: 
 
 [![asciicast](https://asciinema.org/a/Bn2eQ4mRadOfEur8RJhdxDpzB.svg)](https://asciinema.org/a/Bn2eQ4mRadOfEur8RJhdxDpzB)  
 
@@ -44,7 +45,8 @@ Watch the example how to launch and play:
 <h4 align="center">The Brain-Calc Game</h4>  
 
 **Task:** give the correct result of math operations.  
-Watch the example how to launch and play:  
+Command to launch: ```brain-calc```  
+Watch the example how to launch and play: 
 
 [![asciicast](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES.svg)](https://asciinema.org/a/z3BycEKavYDituCUlh8sW8VES)  
 
@@ -54,6 +56,7 @@ Watch the example how to launch and play:
 <h4 align="center">The Brain-Gcd Game</h4>  
 
 **Task:** find the greatest common divisor of given numbers.  
+Command to launch: ```brain-gcd```  
 Watch the example how to launch and play: 
 
 [![asciicast](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4.svg)](https://asciinema.org/a/8SyonS4wPFnLhRRImUm4qZiv4)  
@@ -64,7 +67,8 @@ Watch the example how to launch and play:
 <h4 align="center">The Brain-Progression Game</h4>  
 
 **Task:** find the missing number in the progression of numbers.  
-Watch the example how to launch and play:  
+Command to launch: ```brain-progression```  
+Watch the example how to launch and play: 
 
 [![asciicast](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2.svg)](https://asciinema.org/a/xmVZRHxwccLQi3W42Wj1J2Ic2)  
 
@@ -74,6 +78,7 @@ Watch the example how to launch and play:
 <h4 align="center">The Brain-Prime game</h4>  
 
 **Task:** find all prime numbers of the proposed variants.  
+Command to launch: ```brain-prime```  
 Watch the example how to launch and play: 
 
 [![asciicast](https://asciinema.org/a/3XxEQcN7Iqz0bdP0AkUnHJoh4.svg)](https://asciinema.org/a/3XxEQcN7Iqz0bdP0AkUnHJoh4)
