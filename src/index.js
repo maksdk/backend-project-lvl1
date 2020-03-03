@@ -18,7 +18,7 @@ const print = (message) => {
   console.log(message);
 };
 
-const ask = (question) => String(readlineSync.question(question));
+const ask = (question) => readlineSync.question(question);
 
 const gameLoop = (rounds, userName, currentRoundIndex) => {
   if (currentRoundIndex >= rounds.length) {
