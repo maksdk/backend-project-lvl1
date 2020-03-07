@@ -7,21 +7,21 @@ import utils from '../utils/index.js';
 const minStartNumber = -50;
 const maxStartNumber = 50;
 
-const minProgressStep = -5;
-const maxProgressStep = 5;
+const minStep = -5;
+const maxStep = 5;
 
 const roundsCount = 3;
-const rangeLength = 10;
+const progressionLength = 10;
 
 const generateProgression = (startNum, step) => {
-  const ranges = [];
+  const progression = [];
 
-  for (let i = 0; i < rangeLength; i += 1) {
-    const randgeValue = startNum + step * i;
-    ranges.push(randgeValue);
+  for (let i = 0; i < progressionLength; i += 1) {
+    const progressionValue = startNum + step * i;
+    progression.push(progressionValue);
   }
 
-  return ranges;
+  return progression;
 };
 
 const createRounds = () => {
@@ -30,10 +30,10 @@ const createRounds = () => {
   for (let i = 0; i < roundsCount; i += 1) {
     const startNumber = utils.randomNumber(minStartNumber, maxStartNumber);
 
-    let progressStep = utils.randomNumber(minProgressStep, maxProgressStep);
-    progressStep = progressStep === 0 ? progressStep + maxProgressStep : progressStep;
+    let step = utils.randomNumber(minStep, maxStep);
+    step = step === 0 ? step + maxStep : step;
 
-    const progression = generateProgression(startNumber, progressStep);
+    const progression = generateProgression(startNumber, step);
     const randomIndex = utils.randomNumber(0, progression.length - 1);
 
     const answer = String(progression[randomIndex]);
