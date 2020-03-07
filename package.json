@@ -1,6 +1,6 @@
 {
   "name": "backend-project-lvl1-maksdk",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "hexlet project",
   "main": "src/index.js",
   "bin": {
