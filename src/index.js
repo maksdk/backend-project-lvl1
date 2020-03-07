@@ -2,6 +2,8 @@
 import readlineSync from 'readline-sync';
 import colors from 'colors';
 
+const roundsCount = 3;
+
 const mapTexts = {
   welcome: () => 'Welcome to the Brain Games!',
   name: () => 'May I have your name? ',
@@ -20,35 +22,29 @@ const print = (message) => {
 
 const ask = (question) => readlineSync.question(question);
 
-const runGameLoop = (rounds, userName, currentRoundIndex) => {
-  if (currentRoundIndex >= rounds.length) {
-    print(mapTexts.win(userName));
-    return;
+const run = (userName, generateRound) => {
+  for (let i = 0; i < roundsCount; i += 1) {
+    const round = generateRound();
+    const {
+      answer: roundAnswer,
+      question: roundQuestion,
+    } = round;
+
+    print(mapTexts.question(roundQuestion));
+
+    const userAnswer = ask(mapTexts.answer());
+
+    if (userAnswer !== roundAnswer) {
+      print(mapTexts.wrong(userAnswer, roundAnswer));
+      print(mapTexts.replay(userName));
+      return;
+    }
   }
 
-  const round = rounds[currentRoundIndex];
-
-  const {
-    answer: roundAnswer,
-    question: roundQuestion,
-  } = round;
-
-  print(mapTexts.question(roundQuestion));
-
-  const userAnswer = ask(mapTexts.answer());
-
-  if (userAnswer === roundAnswer) {
-    runGameLoop(rounds, userName, currentRoundIndex + 1);
-  } else {
-    print(mapTexts.wrong(userAnswer, roundAnswer));
-    print(mapTexts.replay(userName));
-  }
+  print(mapTexts.win(userName));
 };
 
-const play = (task, createRounds) => {
-  const initRoundIndex = 0;
-  const rounds = createRounds();
-
+const play = (task, generateRound) => {
   print(mapTexts.welcome());
 
   const userName = ask(mapTexts.name());
@@ -57,7 +53,7 @@ const play = (task, createRounds) => {
 
   print(task);
 
-  runGameLoop(rounds, userName, initRoundIndex);
+  run(userName, generateRound);
 };
 
 export default play;
