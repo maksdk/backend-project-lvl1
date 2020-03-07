@@ -1,5 +1,3 @@
 // @ts-check
-
-const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-
-export default { randomNumber };
+/* eslint-disable import/prefer-default-export */
+export const randomNumber = (min, max) => Math.floor(min + Math.random() * (max - min + 1));

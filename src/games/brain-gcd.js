@@ -1,7 +1,7 @@
 // @ts-check
 
 import play from '../index.js';
-import utils from '../utils/index.js';
+import { randomNumber } from '../utils/index.js';
 
 const minNumber = 1;
 const maxNumber = 20;
@@ -24,8 +24,8 @@ const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    const number1 = utils.randomNumber(minNumber, maxNumber);
-    const number2 = utils.randomNumber(minNumber, maxNumber);
+    const number1 = randomNumber(minNumber, maxNumber);
+    const number2 = randomNumber(minNumber, maxNumber);
 
     const question = `${number1} ${number2}`;
     const answer = String(getGreatestCommonDivisor(number1, number2));

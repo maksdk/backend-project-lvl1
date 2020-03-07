@@ -2,7 +2,7 @@
 
 import colors from 'colors';
 import play from '../index.js';
-import utils from '../utils/index.js';
+import { randomNumber } from '../utils/index.js';
 
 const minNumber = 0;
 const maxNumber = 20;
@@ -17,7 +17,7 @@ const createRounds = () => {
   const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    const number = utils.randomNumber(minNumber, maxNumber);
+    const number = randomNumber(minNumber, maxNumber);
     const question = String(number);
     const answer = isEven(number) ? correctAnswer : wrongAnswer;
 
