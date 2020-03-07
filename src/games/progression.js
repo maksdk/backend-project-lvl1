@@ -10,7 +10,6 @@ const maxStartNumber = 50;
 const minStep = -5;
 const maxStep = 5;
 
-const roundsCount = 3;
 const progressionLength = 10;
 
 const generateProgression = (startNum, step) => {
@@ -24,29 +23,23 @@ const generateProgression = (startNum, step) => {
   return progression;
 };
 
-const createRounds = () => {
-  const rounds = [];
+const generateRound = () => {
+  const startNumber = randomNumber(minStartNumber, maxStartNumber);
 
-  for (let i = 0; i < roundsCount; i += 1) {
-    const startNumber = randomNumber(minStartNumber, maxStartNumber);
+  let step = randomNumber(minStep, maxStep);
+  step = step === 0 ? step + maxStep : step;
 
-    let step = randomNumber(minStep, maxStep);
-    step = step === 0 ? step + maxStep : step;
+  const progression = generateProgression(startNumber, step);
+  const randomIndex = randomNumber(0, progression.length - 1);
 
-    const progression = generateProgression(startNumber, step);
-    const randomIndex = randomNumber(0, progression.length - 1);
+  const answer = String(progression[randomIndex]);
 
-    const answer = String(progression[randomIndex]);
+  progression[randomIndex] = '..';
+  const question = progression.join(' ');
 
-    progression[randomIndex] = '..';
-    const question = progression.join(' ');
-
-    rounds.push({ question, answer });
-  }
-
-  return rounds;
+  return { question, answer };
 };
 
 const task = `What number is missing ${colors.bold('in')} the progression?`;
 
-export default () => play(task, createRounds);
+export default () => play(task, generateRound);
