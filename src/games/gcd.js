@@ -5,7 +5,6 @@ import { randomNumber } from '../utils/index.js';
 
 const minNumber = 1;
 const maxNumber = 20;
-const roundsCount = 3;
 
 const getGreatestCommonDivisor = (num1, num2) => {
   let n1 = Math.abs(num1);
@@ -20,22 +19,16 @@ const getGreatestCommonDivisor = (num1, num2) => {
   return n1;
 };
 
-const createRounds = () => {
-  const rounds = [];
+const generateRound = () => {
+  const number1 = randomNumber(minNumber, maxNumber);
+  const number2 = randomNumber(minNumber, maxNumber);
 
-  for (let i = 0; i < roundsCount; i += 1) {
-    const number1 = randomNumber(minNumber, maxNumber);
-    const number2 = randomNumber(minNumber, maxNumber);
+  const question = `${number1} ${number2}`;
+  const answer = String(getGreatestCommonDivisor(number1, number2));
 
-    const question = `${number1} ${number2}`;
-    const answer = String(getGreatestCommonDivisor(number1, number2));
-
-    rounds.push({ question, answer });
-  }
-
-  return rounds;
+  return { question, answer };
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
 
-export default () => play(task, createRounds);
+export default () => play(task, generateRound);
