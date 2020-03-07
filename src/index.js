@@ -20,7 +20,7 @@ const print = (message) => {
 
 const ask = (question) => readlineSync.question(question);
 
-const gameLoop = (rounds, userName, currentRoundIndex) => {
+const runGameLoop = (rounds, userName, currentRoundIndex) => {
   if (currentRoundIndex >= rounds.length) {
     print(mapTexts.win(userName));
     return;
@@ -38,7 +38,7 @@ const gameLoop = (rounds, userName, currentRoundIndex) => {
   const userAnswer = ask(mapTexts.answer());
 
   if (userAnswer === roundAnswer) {
-    gameLoop(rounds, userName, currentRoundIndex + 1);
+    runGameLoop(rounds, userName, currentRoundIndex + 1);
   } else {
     print(mapTexts.wrong(userAnswer, roundAnswer));
     print(mapTexts.replay(userName));
@@ -57,7 +57,7 @@ const play = (task, createRounds) => {
 
   print(task);
 
-  gameLoop(rounds, userName, initRoundIndex);
+  runGameLoop(rounds, userName, initRoundIndex);
 };
 
 export default play;
