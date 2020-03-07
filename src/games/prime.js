@@ -6,7 +6,6 @@ import { randomNumber } from '../utils/index.js';
 
 const minNumber = 1;
 const maxNumber = 50;
-const roundsCount = 3;
 
 const correctAnswer = 'yes';
 const wrongAnswer = 'no';
@@ -21,20 +20,14 @@ const isPrime = (num) => {
   return true;
 };
 
-const createRounds = () => {
-  const rounds = [];
+const generateRound = () => {
+  const number = randomNumber(minNumber, maxNumber);
+  const question = String(number);
+  const answer = isPrime(number) === true ? correctAnswer : wrongAnswer;
 
-  for (let i = 0; i < roundsCount; i += 1) {
-    const number = randomNumber(minNumber, maxNumber);
-    const question = String(number);
-    const answer = isPrime(number) === true ? correctAnswer : wrongAnswer;
-
-    rounds.push({ question, answer });
-  }
-
-  return rounds;
+  return { question, answer };
 };
 
 const task = `Answer ${colors.red('"yes"')} ${colors.bold('if')} given number is prime. Otherwise answer ${colors.red('"no"')}.`;
 
-export default () => play(task, createRounds);
+export default () => play(task, generateRound);
