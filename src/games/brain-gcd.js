@@ -3,9 +3,9 @@
 import play from '../index.js';
 import utils from '../utils/index.js';
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 20;
-const ROUNDS_COUNT = 3;
+const minNumber = 1;
+const maxNumber = 20;
+const roundsCount = 3;
 
 const getGreatestCommonDivisor = (num1, num2) => {
   let n1 = Math.abs(num1);
@@ -23,9 +23,9 @@ const getGreatestCommonDivisor = (num1, num2) => {
 const createRounds = () => {
   const rounds = [];
 
-  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const number1 = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
-    const number2 = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+  for (let i = 0; i < roundsCount; i += 1) {
+    const number1 = utils.randomNumber(minNumber, maxNumber);
+    const number2 = utils.randomNumber(minNumber, maxNumber);
 
     const question = `${number1} ${number2}`;
     const answer = String(getGreatestCommonDivisor(number1, number2));

@@ -4,19 +4,19 @@ import colors from 'colors';
 import play from '../index.js';
 import utils from '../utils/index.js';
 
-const MIN_START_NUMBER = -50;
-const MAX_START_NUMBER = 50;
+const minStartNumber = -50;
+const maxStartNumber = 50;
 
-const MIN_PROGRESS_STEP_NUMBER = -5;
-const MAX_PROGRESS_STEP_NUMBER = 5;
+const minProgressStep = -5;
+const maxProgressStep = 5;
 
-const ROUNDS_COUNT = 3;
-const RANGE_LENGTH = 10;
+const roundsCount = 3;
+const rangeLength = 10;
 
 const generateProgression = (startNum, step) => {
   const ranges = [];
 
-  for (let i = 0; i < RANGE_LENGTH; i += 1) {
+  for (let i = 0; i < rangeLength; i += 1) {
     const randgeValue = startNum + step * i;
     ranges.push(randgeValue);
   }
@@ -27,11 +27,11 @@ const generateProgression = (startNum, step) => {
 const createRounds = () => {
   const rounds = [];
 
-  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const startNumber = utils.randomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
+  for (let i = 0; i < roundsCount; i += 1) {
+    const startNumber = utils.randomNumber(minStartNumber, maxStartNumber);
 
-    let progressStep = utils.randomNumber(MIN_PROGRESS_STEP_NUMBER, MAX_PROGRESS_STEP_NUMBER);
-    progressStep = progressStep === 0 ? progressStep + MAX_PROGRESS_STEP_NUMBER : progressStep;
+    let progressStep = utils.randomNumber(minProgressStep, maxProgressStep);
+    progressStep = progressStep === 0 ? progressStep + maxProgressStep : progressStep;
 
     const progression = generateProgression(startNumber, progressStep);
     const randomIndex = utils.randomNumber(0, progression.length - 1);

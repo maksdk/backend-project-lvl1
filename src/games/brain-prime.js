@@ -4,12 +4,12 @@ import colors from 'colors';
 import play from '../index.js';
 import utils from '../utils/index.js';
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 50;
-const ROUNDS_COUNT = 3;
+const minNumber = 1;
+const maxNumber = 50;
+const roundsCount = 3;
 
-const YES_ANSWER = 'yes';
-const NO_ANSWER = 'no';
+const correctAnswer = 'yes';
+const wrongAnswer = 'no';
 
 const isPrime = (num) => {
   if (num < 2) return false;
@@ -24,10 +24,10 @@ const isPrime = (num) => {
 const createRounds = () => {
   const rounds = [];
 
-  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const number = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+  for (let i = 0; i < roundsCount; i += 1) {
+    const number = utils.randomNumber(minNumber, maxNumber);
     const question = String(number);
-    const answer = isPrime(number) === true ? YES_ANSWER : NO_ANSWER;
+    const answer = isPrime(number) === true ? correctAnswer : wrongAnswer;
 
     rounds.push({ question, answer });
   }

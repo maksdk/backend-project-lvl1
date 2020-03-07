@@ -4,22 +4,22 @@ import colors from 'colors';
 import play from '../index.js';
 import utils from '../utils/index.js';
 
-const MIN_NUMBER = 0;
-const MAX_NUMBER = 20;
-const ROUNDS_COUNT = 3;
+const minNumber = 0;
+const maxNumber = 20;
+const roundsCount = 3;
 
-const CORRECT_ANSWER = 'yes';
-const WRONG_ANSWER = 'no';
+const correctAnswer = 'yes';
+const wrongAnswer = 'no';
 
 const isEven = (num) => num % 2 === 0;
 
 const createRounds = () => {
   const rounds = [];
 
-  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
-    const number = utils.randomNumber(MIN_NUMBER, MAX_NUMBER);
+  for (let i = 0; i < roundsCount; i += 1) {
+    const number = utils.randomNumber(minNumber, maxNumber);
     const question = String(number);
-    const answer = isEven(number) ? CORRECT_ANSWER : WRONG_ANSWER;
+    const answer = isEven(number) ? correctAnswer : wrongAnswer;
 
     rounds.push({ question, answer });
   }
@@ -27,6 +27,6 @@ const createRounds = () => {
   return rounds;
 };
 
-const task = `Answer ${colors.red(`"${CORRECT_ANSWER}"`)} ${colors.bold('if')} the number is even, otherwise answer ${colors.red(`"${WRONG_ANSWER}"`)}.`;
+const task = `Answer ${colors.red(`"${correctAnswer}"`)} ${colors.bold('if')} the number is even, otherwise answer ${colors.red(`"${wrongAnswer}"`)}.`;
 
 export default () => play(task, createRounds);
