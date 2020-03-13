@@ -25,17 +25,14 @@ const ask = (question) => readlineSync.question(question);
 const run = (userName, generateRound) => {
   for (let i = 0; i < roundsCount; i += 1) {
     const round = generateRound();
-    const {
-      answer: roundAnswer,
-      question: roundQuestion,
-    } = round;
+    const { answer, question } = round;
 
-    print(mapTexts.question(roundQuestion));
+    print(mapTexts.question(question));
 
     const userAnswer = ask(mapTexts.answer());
 
-    if (userAnswer !== roundAnswer) {
-      print(mapTexts.wrong(userAnswer, roundAnswer));
+    if (userAnswer !== answer) {
+      print(mapTexts.wrong(userAnswer, answer));
       print(mapTexts.replay(userName));
       return;
     }
