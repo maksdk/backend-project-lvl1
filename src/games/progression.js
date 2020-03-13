@@ -2,7 +2,7 @@
 
 import colors from 'colors';
 import play from '../index.js';
-import { randomNumber } from '../utils/index.js';
+import randomNumber from '../utils/index.js';
 
 const minStartNumber = -50;
 const maxStartNumber = 50;

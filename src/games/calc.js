@@ -1,7 +1,7 @@
 // @ts-check
 
 import play from '../index.js';
-import { randomNumber } from '../utils/index.js';
+import randomNumber from '../utils/index.js';
 
 const minNumber = 0;
 const maxNumber = 10;
